@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-func main() {
-	nema := "Hello, World!"
-	fmt.Println(nema)
+func main() {	name := "Hello, World!"
+	fmt.Println(name)
 }
