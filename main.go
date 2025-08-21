@@ -1,10 +1,18 @@
 package main
 
 import (
-	"fmt"
+	"crypto/tls"
+	"net/http"
 )
 
 func main() {
-	name := "Hello, World!"
-	fmt.Println(name)
+	hc := &http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
+		},
+	}
+
+	hc.Get("https://google.com") // This will skip TLS verification
 }
