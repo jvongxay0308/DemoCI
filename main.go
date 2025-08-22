@@ -16,7 +16,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to make request: %v", err)
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() //nolint:errcheck
 
-	io.Copy(os.Stdout, resp.Body) // Print the response body to stdout
+	io.Copy(os.Stdout, resp.Body) //nolint:errcheck
 }
